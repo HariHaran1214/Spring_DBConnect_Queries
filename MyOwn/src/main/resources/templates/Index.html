@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend Example</title>
+</head>
+<body>
+    <h1>Data from Backend</h1>
+    <div id="data"></div>
+
+    <script>
+        // Make a GET request to the Spring Boot backend
+        fetch('http://localhost:8080/stud/3')
+            .then(response => response.json())
+            .then(data => {
+                // Handle the data and update the UI
+                document.getElementById('data').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
